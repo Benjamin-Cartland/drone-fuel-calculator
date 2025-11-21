@@ -1,0 +1,465 @@
+/* ========================================
+   Drone Fuel Calculator - Print Styles
+   ======================================== */
+
+@media print {
+  /* ========================================
+     Reset & Page Setup
+     ======================================== */
+
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    background: white !important;
+  }
+
+  /* ========================================
+     Hide Interactive Elements
+     ======================================== */
+
+  .tab-nav,
+  .actions-section,
+  .compare-btn,
+  .close-comparison,
+  .comparison-actions,
+  button {
+    display: none !important;
+  }
+
+  /* ========================================
+     Show Only Active Content
+     ======================================== */
+
+  .tab-content {
+    display: none !important;
+  }
+
+  .tab-content.active {
+    display: block !important;
+  }
+
+  /* Show comparison view if it's active */
+  .comparison-view:not(.hidden) {
+    display: block !important;
+  }
+
+  /* ========================================
+     Header
+     ======================================== */
+
+  .app-header {
+    background: white !important;
+    color: #000 !important;
+    border-bottom: 2px solid #000;
+    padding: 0 0 10pt 0;
+    margin-bottom: 20pt;
+    box-shadow: none !important;
+  }
+
+  .app-header h1 {
+    font-size: 18pt;
+    margin-bottom: 5pt;
+  }
+
+  .subtitle {
+    font-size: 10pt;
+  }
+
+  /* Add print timestamp */
+  .app-header::after {
+    content: "Printed: " attr(data-print-date);
+    display: block;
+    font-size: 9pt;
+    color: #666;
+    margin-top: 5pt;
+  }
+
+  /* ========================================
+     Container
+     ======================================== */
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ========================================
+     Form Sections
+     ======================================== */
+
+  .calculator-form section {
+    background: white !important;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    padding: 15pt;
+    margin-bottom: 15pt;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  .calculator-form section h2 {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 10pt;
+    padding-bottom: 5pt;
+    border-bottom: 1px solid #000;
+  }
+
+  /* ========================================
+     Input Section
+     ======================================== */
+
+  .input-section {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .input-group {
+    display: table-row;
+  }
+
+  .input-group label {
+    display: table-cell;
+    padding: 5pt;
+    font-weight: bold;
+    font-size: 10pt;
+    width: 40%;
+  }
+
+  .calc-input {
+    display: table-cell;
+    padding: 5pt !important;
+    border: 1px solid #000 !important;
+    background: white !important;
+    font-size: 10pt;
+    min-height: auto !important;
+  }
+
+  .optional,
+  .help-text,
+  .calculated-value,
+  .error-message {
+    display: none !important;
+  }
+
+  /* Show calculated flight time */
+  .help-text.calculated-value {
+    display: table-cell !important;
+    font-size: 9pt;
+    color: #666 !important;
+    padding-left: 5pt;
+  }
+
+  /* ========================================
+     Output Section
+     ======================================== */
+
+  .output-grid {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .output-item {
+    display: table-row;
+    background: white !important;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .output-item label,
+  .output-value {
+    display: table-cell;
+    padding: 8pt 5pt;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .output-item label {
+    font-weight: bold;
+    font-size: 10pt;
+    width: 50%;
+  }
+
+  .output-value {
+    text-align: right;
+    font-size: 12pt;
+    font-weight: bold;
+  }
+
+  .output-item.total {
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    background: #f0f0f0 !important;
+  }
+
+  .output-item.total label,
+  .output-item.total .output-value {
+    padding-top: 10pt;
+    padding-bottom: 10pt;
+    font-size: 12pt;
+  }
+
+  .output-item.total .output-value {
+    font-size: 16pt;
+  }
+
+  .output-value .unit {
+    font-size: 10pt;
+    font-weight: normal;
+    color: #666 !important;
+  }
+
+  /* ========================================
+     Warnings Section
+     ======================================== */
+
+  .warnings-section {
+    display: block !important;
+  }
+
+  .warning-alert {
+    display: block;
+    padding: 10pt;
+    border: 1px solid #000;
+    border-left: 4px solid #000;
+    margin-bottom: 10pt;
+    page-break-inside: avoid;
+  }
+
+  .warning-alert.info {
+    border-left-color: #000;
+    background: white !important;
+  }
+
+  .warning-alert.caution {
+    border-left-color: #666;
+    background: #f5f5f5 !important;
+  }
+
+  .warning-alert.warning {
+    border-left-color: #333;
+    background: #f0f0f0 !important;
+  }
+
+  .warning-alert.error {
+    border-left-color: #000;
+    background: #e8e8e8 !important;
+  }
+
+  .warning-icon {
+    display: none;
+  }
+
+  .warning-message {
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+
+  /* Add warning type label */
+  .warning-alert.info::before {
+    content: "INFO: ";
+    font-weight: bold;
+  }
+
+  .warning-alert.caution::before {
+    content: "CAUTION: ";
+    font-weight: bold;
+  }
+
+  .warning-alert.warning::before {
+    content: "WARNING: ";
+    font-weight: bold;
+  }
+
+  .warning-alert.error::before {
+    content: "ERROR: ";
+    font-weight: bold;
+  }
+
+  /* ========================================
+     Comparison View
+     ======================================== */
+
+  .comparison-view {
+    background: white !important;
+    padding: 0;
+    box-shadow: none !important;
+  }
+
+  .comparison-header {
+    border-bottom: 2px solid #000;
+    margin-bottom: 15pt;
+    padding-bottom: 10pt;
+  }
+
+  .comparison-header h2 {
+    font-size: 14pt;
+    margin: 0;
+  }
+
+  .comparison-grid {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .comparison-column {
+    display: table-column;
+    width: 50%;
+  }
+
+  .comparison-column h3 {
+    font-size: 12pt;
+    margin-bottom: 10pt;
+    padding: 8pt;
+    background: #f0f0f0 !important;
+    border: 1px solid #000;
+  }
+
+  .comparison-row {
+    display: table-row;
+  }
+
+  .comparison-label,
+  .comparison-value {
+    display: table-cell;
+    padding: 5pt;
+    border: 1px solid #ddd;
+    font-size: 10pt;
+  }
+
+  .comparison-label {
+    font-weight: bold;
+    width: 30%;
+  }
+
+  .comparison-value {
+    text-align: right;
+  }
+
+  .comparison-value.difference {
+    font-size: 9pt;
+    color: #666 !important;
+  }
+
+  /* ========================================
+     Footer
+     ======================================== */
+
+  .app-footer {
+    border-top: 1px solid #000;
+    padding: 10pt 0 0 0;
+    margin-top: 20pt;
+    page-break-inside: avoid;
+  }
+
+  .disclaimer {
+    font-size: 8pt;
+    color: #666 !important;
+    margin-bottom: 5pt;
+  }
+
+  .version {
+    font-size: 8pt;
+    color: #999 !important;
+  }
+
+  /* ========================================
+     Page Breaks
+     ======================================== */
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  .calculator-form section,
+  .warning-alert,
+  .output-item {
+    page-break-inside: avoid;
+  }
+
+  /* Force page break before comparison if needed */
+  .comparison-view {
+    page-break-before: auto;
+  }
+
+  /* ========================================
+     Links
+     ======================================== */
+
+  a {
+    text-decoration: underline;
+    color: #000 !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666 !important;
+  }
+
+  /* ========================================
+     Tab Name in Print
+     ======================================== */
+
+  .calculator-form::before {
+    content: attr(data-tab-name);
+    display: block;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-bottom: 10pt;
+    padding-bottom: 5pt;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* ========================================
+     Print Metadata
+     ======================================== */
+
+  body::before {
+    content: "Drone Fuel Calculator - Flight Planning Report";
+    display: block;
+    font-size: 10pt;
+    color: #666;
+    margin-bottom: 5pt;
+  }
+
+  body::after {
+    content: "Page " counter(page) " of " counter(pages);
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 8pt;
+    color: #999;
+  }
+}
+
+/* ========================================
+   Print Preview Styles (Screen)
+   ======================================== */
+
+@media screen {
+  .print-preview {
+    background: white;
+    max-width: 21cm;
+    margin: 20px auto;
+    padding: 2cm;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}

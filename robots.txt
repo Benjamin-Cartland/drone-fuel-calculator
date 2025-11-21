@@ -1,0 +1,10 @@
+# robots.txt for Drone Fuel Calculator
+
+User-agent: *
+Allow: /
+
+# Disallow data files if any
+Disallow: /*.json$
+
+# Sitemap (update with your actual domain)
+# Sitemap: https://yourdomain.com/sitemap.xml

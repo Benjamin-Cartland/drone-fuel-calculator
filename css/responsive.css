@@ -1,0 +1,361 @@
+/* ========================================
+   Drone Fuel Calculator - Responsive Styles
+   ======================================== */
+
+/* ========================================
+   Mobile Styles (< 768px)
+   ======================================== */
+
+@media screen and (max-width: 767px) {
+  /* Header */
+  .app-header {
+    padding: var(--spacing-md);
+  }
+
+  .app-header h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-sm);
+  }
+
+  /* Container */
+  .container {
+    padding: var(--spacing-md);
+  }
+
+  /* Tab Navigation */
+  .tab-nav {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .tab-btn {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    border-left: 3px solid transparent;
+    padding: var(--spacing-md);
+    bottom: 0;
+  }
+
+  .tab-btn.active {
+    border-bottom-color: var(--border-color);
+    border-left-color: var(--color-primary);
+    background-color: var(--bg-hover);
+  }
+
+  .compare-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* Form Sections */
+  .calculator-form section {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .calculator-form section h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  /* Input Section */
+  .input-section {
+    gap: var(--spacing-md);
+  }
+
+  /* Output Grid */
+  .output-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .output-value {
+    font-size: var(--font-size-xl);
+  }
+
+  .output-item.total .output-value {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Actions Section */
+  .actions-section {
+    flex-direction: column;
+  }
+
+  .actions-section button {
+    width: 100%;
+  }
+
+  /* Comparison View - Stacked Vertically */
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .comparison-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+
+  .comparison-header h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .close-comparison {
+    width: 100%;
+  }
+
+  .comparison-actions {
+    flex-direction: column;
+  }
+
+  .comparison-actions button {
+    width: 100%;
+  }
+
+  /* Footer */
+  .app-footer {
+    padding: var(--spacing-md);
+  }
+
+  .disclaimer {
+    font-size: 0.8125rem;
+  }
+}
+
+/* ========================================
+   Tablet Styles (768px - 1024px)
+   ======================================== */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Container */
+  .container {
+    padding: var(--spacing-lg);
+  }
+
+  /* Header */
+  .app-header h1 {
+    font-size: 2.25rem;
+  }
+
+  /* Input Section - Two Columns on Tablet */
+  .input-section {
+    grid-template-columns: 1fr;
+  }
+
+  /* Keep section titles full width */
+  .input-section h2 {
+    grid-column: 1 / -1;
+  }
+
+  /* Output Grid */
+  .output-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Actions Section */
+  .actions-section {
+    gap: var(--spacing-md);
+  }
+
+  /* Comparison Grid - Side by Side on Tablet */
+  .comparison-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* ========================================
+   Desktop Styles (≥ 1024px)
+   ======================================== */
+
+@media screen and (min-width: 1024px) {
+  /* Container */
+  .container {
+    padding: var(--spacing-xl);
+  }
+
+  /* Input Section - Two Columns on Desktop */
+  .input-section {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--spacing-xl);
+  }
+
+  /* Keep section titles full width */
+  .input-section h2 {
+    grid-column: 1 / -1;
+  }
+
+  /* Output Grid */
+  .output-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Comparison Grid - Side by Side on Desktop */
+  .comparison-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  /* Hover Effects for Desktop */
+  .tab-btn:hover .tab-name {
+    text-decoration: underline;
+  }
+
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   Large Desktop (≥ 1440px)
+   ======================================== */
+
+@media screen and (min-width: 1440px) {
+  /* Increase container max-width for larger screens */
+  .container {
+    max-width: 1400px;
+  }
+
+  /* Three columns for output on very large screens */
+  .output-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Input section can be more spacious */
+  .input-section {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--spacing-2xl);
+  }
+}
+
+/* ========================================
+   Landscape Mobile (≥ 568px height AND < 768px width)
+   ======================================== */
+
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  /* Reduce vertical spacing in landscape */
+  .calculator-form section {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .input-group {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .output-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   Touch Device Optimizations
+   ======================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .calc-input {
+    min-height: 48px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  button {
+    min-height: 48px;
+  }
+
+  .tab-btn {
+    min-height: 48px;
+  }
+
+  /* Remove hover effects on touch devices */
+  .tab-btn:hover {
+    background-color: transparent;
+  }
+
+  .tab-btn.active:hover {
+    background-color: var(--bg-hover);
+  }
+}
+
+/* ========================================
+   Print Optimizations (Referenced but detailed in print.css)
+   ======================================== */
+
+@media print {
+  /* Basic print rules - detailed styles in print.css */
+  body {
+    background-color: white;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* ========================================
+   Reduced Motion (Accessibility)
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  button:hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+   High Contrast Mode (Accessibility)
+   ======================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --text-secondary: #000000;
+  }
+
+  .calc-input {
+    border-width: 2px;
+  }
+
+  button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ========================================
+   Dark Mode (Future Enhancement - Prepared)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  /* Dark mode styles commented out for v1.0
+   * Uncomment and adjust when implementing dark mode
+   */
+
+  /*
+  :root {
+    --color-primary: #3b82f6;
+    --bg-primary: #0f172a;
+    --bg-surface: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --border-color: #334155;
+  }
+  */
+}

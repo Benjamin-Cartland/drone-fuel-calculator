@@ -1,0 +1,11 @@
+# Redirects for Cloudflare Pages
+
+# Redirect old URLs if needed (example)
+# /old-calculator.html  /  301
+
+# SPA fallback - redirect all non-existent routes to index.html
+# (Not needed for this simple single-page app, but useful if routes are added later)
+# /*  /index.html  200
+
+# Force HTTPS (Cloudflare handles this automatically, but you can be explicit)
+# http://*  https://:splat  301
