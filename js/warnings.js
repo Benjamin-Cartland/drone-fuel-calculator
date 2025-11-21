@@ -151,20 +151,20 @@ const WarningSystem = (function() {
 
   /**
    * Check for speed concerns
-   * @param {number} speed - Speed in km/h
+   * @param {number} speed - Speed in m/s
    * @returns {Object|null} Warning object or null
    */
   function checkSpeedConcerns(speed) {
-    if (speed > 0 && speed < 10) {
+    if (speed > 0 && speed < 3) {
       return {
         type: WARNING_TYPES.INFO,
-        message: `Very low cruise speed detected (${speed.toFixed(2)} km/h). Verify speed input is correct.`
+        message: `Very low cruise speed detected (${speed.toFixed(2)} m/s). Verify speed input is correct.`
       };
     }
-    if (speed > 200) {
+    if (speed > 60) {
       return {
         type: WARNING_TYPES.INFO,
-        message: `High cruise speed detected (${speed.toFixed(2)} km/h). Verify speed input and drone capabilities.`
+        message: `High cruise speed detected (${speed.toFixed(2)} m/s). Verify speed input and drone capabilities.`
       };
     }
     return null;

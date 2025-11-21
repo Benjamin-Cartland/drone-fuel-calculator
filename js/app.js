@@ -130,9 +130,11 @@ const App = (function() {
       const suffix = tabId.slice(-1).toUpperCase();
       const flightTimeInput = document.getElementById(`flightTime${suffix}`);
 
-      // Only auto-fill if flight time is empty or zero
-      if (flightTimeInput && (!inputs.flightTime || inputs.flightTime === 0)) {
+      // Auto-fill flight time and trigger immediate calculation
+      if (flightTimeInput) {
         flightTimeInput.value = calculatedTime.toFixed(2);
+        // Trigger immediate calculation (no debounce for auto-fill)
+        performCalculation(tabId);
       }
 
       // Show calculated indicator

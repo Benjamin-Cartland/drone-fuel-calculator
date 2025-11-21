@@ -12,7 +12,7 @@ const FuelCalculator = (function() {
     MIN_DISTANCE: 0.01,
     MAX_DISTANCE: 10000,
     MIN_SPEED: 0.01,
-    MAX_SPEED: 500,
+    MAX_SPEED: 140, // m/s (approximately 500 km/h)
     MIN_FLIGHT_TIME: 0.01,
     MAX_FLIGHT_TIME: 24,
     MIN_RESERVE: 0,
@@ -36,14 +36,16 @@ const FuelCalculator = (function() {
   /**
    * Calculate flight time from distance and speed
    * @param {number} distance - Distance in km
-   * @param {number} speed - Speed in km/h
+   * @param {number} speed - Speed in m/s
    * @returns {number} Flight time in hours
    */
   function calculateFlightTime(distance, speed) {
     if (!distance || !speed || speed <= 0) {
       return 0;
     }
-    return distance / speed;
+    // Convert: distance (km) / (speed (m/s) * 3.6) = time (hours)
+    // Formula: 1 m/s = 3.6 km/h, so speed_kmh = speed_ms * 3.6
+    return distance / (speed * 3.6);
   }
 
   /**
