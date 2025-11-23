@@ -73,9 +73,11 @@ A web-based fuel calculation tool for drone flight planning that calculates tota
 #### FR-005: Total Fuel Calculation
 - **Requirement:** Calculate total fuel required
 - **Formula:** `Total Fuel = Flight Fuel + Variable Reserve + Reserve Fuel`
-- **Precision:** Display to 2 decimal places
+- **Precision:** Display to 1 decimal place, rounded UP using Math.ceil() for safety margins
+- **Rounding:** All intermediate fuel values also rounded UP to 0.1 kg before summing
+- **Display Format:** "X.X kg" (e.g., "2.8 kg", "3.1 kg")
 - **Priority:** Critical
-- **Status:** ✅ Implemented
+- **Status:** ✅ Implemented (v1.2.0)
 
 ### 2.2 Input Requirements
 
@@ -358,6 +360,52 @@ A web-based fuel calculation tool for drone flight planning that calculates tota
 - **Behavior:** Show warning notification, continue operation
 - **Priority:** Medium
 - **Status:** ✅ Implemented
+
+### 2.9 Dark Mode (v1.3.0)
+
+#### FR-080: Dark Mode Toggle
+- **Requirement:** Toggle between light and dark themes
+- **Implementation:** Button in header with moon (🌙) and sun (☀️) icons
+- **Behavior:** Click to switch themes, icon changes based on current theme
+- **Visual Feedback:** Smooth transition between themes (200ms)
+- **Priority:** High
+- **Status:** ✅ Implemented (v1.3.0)
+
+#### FR-081: System Preference Detection
+- **Requirement:** Detect user's system color scheme preference
+- **Implementation:** Uses `prefers-color-scheme` media query
+- **Behavior:** On first visit, automatically apply system preference
+- **Fallback:** Defaults to light mode if no preference detected
+- **Priority:** High
+- **Status:** ✅ Implemented (v1.3.0)
+
+#### FR-082: Theme Persistence
+- **Requirement:** Remember user's theme choice across sessions
+- **Storage:** localStorage key `theme` with values 'light' or 'dark'
+- **Behavior:** Restores saved theme on page load
+- **Priority:** High
+- **Status:** ✅ Implemented (v1.3.0)
+
+#### FR-083: Dark Mode Color Scheme
+- **Requirement:** Comprehensive dark color palette
+- **Implementation:** CSS variables for all theme colors
+- **Coverage:** All UI elements adapt to dark mode
+- **Colors:**
+  - Background: #1a1a1a (dark gray)
+  - Surface: #2d2d2d (medium gray)
+  - Text: #e5e5e5 (light gray)
+  - Primary: Adjusted blues for dark backgrounds
+  - Borders: Muted grays for reduced contrast
+- **Accessibility:** Maintains WCAG AA contrast ratios in dark mode
+- **Priority:** High
+- **Status:** ✅ Implemented (v1.3.0)
+
+#### FR-084: No Flash on Load
+- **Requirement:** Prevent theme flash when page loads
+- **Implementation:** Inline script in HTML head applies theme before render
+- **Behavior:** Theme class added to document element immediately
+- **Priority:** Medium
+- **Status:** ✅ Implemented (v1.3.0)
 
 ---
 
@@ -759,10 +807,10 @@ A web-based fuel calculation tool for drone flight planning that calculates tota
    - Localized date/time formats
 
 9. **User Interface Enhancements**
-   - Dark mode
-   - Custom color themes
+   - Custom color themes (beyond light/dark)
    - Chart/graph visualizations
    - Fuel trend analysis
+   - Animation preferences (reduced motion)
 
 10. **Advanced Features**
     - Route planning integration
@@ -885,17 +933,17 @@ Effective Fuel Rate = Total Fuel ÷ Total Time
 
 **Given:**
 - Distance: 180 km
-- Speed: 90 km/h
+- Speed: 25 m/s (= 90 km/h)
 - Final Reserve: 0.5 hrs
 - Holding: 0 hrs
 - Contingency: 0 hrs
 
 **Calculation:**
-1. Flight Time = 180 ÷ 90 = 2.0 hrs
-2. Flight Fuel = 2.0 × 1.4 = 2.80 kg
-3. Variable Reserve = 2.80 × 0.10 = 0.28 kg
-4. Reserve Fuel = (0.5 + 0 + 0) × 1.4 = 0.70 kg
-5. **Total Fuel = 2.80 + 0.28 + 0.70 = 3.78 kg**
+1. Flight Time = 180 ÷ (25 × 3.6) = 180 ÷ 90 = 2.0 hrs
+2. Flight Fuel = 2.0 × 1.4 = 2.8 kg (rounded UP to 0.1 kg)
+3. Variable Reserve = 2.8 × 0.10 = 0.28 → 0.3 kg (rounded UP)
+4. Reserve Fuel = (0.5 + 0 + 0) × 1.4 = 0.7 kg (rounded UP to 0.1 kg)
+5. **Total Fuel = 2.8 + 0.3 + 0.7 = 3.8 kg** (displayed as "3.8 kg")
 
 ---
 

@@ -1,5 +1,7 @@
 # 🚀 Deployment Ready!
 
+**Version 1.3.0** | Developed by Benjamin Cartland
+
 ## ✅ Git Repository Created and Pushed
 
 Your drone fuel calculator is now on GitHub:
@@ -8,7 +10,7 @@ Your drone fuel calculator is now on GitHub:
 
 **Status:**
 - ✅ Git initialized
-- ✅ All 19 files committed
+- ✅ All 20+ files committed (v1.3.0)
 - ✅ Pushed to GitHub (main branch)
 - ✅ Public repository
 - ✅ Ready for deployment
@@ -56,9 +58,9 @@ Once deployed, test these features:
 
 **Basic Functionality:**
 - [ ] Enter distance: 180 km
-- [ ] Enter speed: 90 km/h
-- [ ] Verify flight time auto-calculates: 2.0 hrs
-- [ ] Check total fuel: 3.78 kg
+- [ ] Enter speed: 25 m/s (= 90 km/h)
+- [ ] Verify flight time auto-calculates: 2.00 hrs
+- [ ] Check total fuel: 3.8 kg (displays 1 decimal place)
 
 **Tab System:**
 - [ ] Switch between Tab A and Tab B
@@ -80,6 +82,13 @@ Once deployed, test these features:
 - [ ] Enter values
 - [ ] Refresh page
 - [ ] Verify data persists
+
+**Dark Mode (v1.3.0):**
+- [ ] Click moon icon to enable dark mode
+- [ ] Verify dark theme applies
+- [ ] Refresh page
+- [ ] Verify theme preference persists
+- [ ] Click sun icon to return to light mode
 
 ---
 
@@ -133,18 +142,22 @@ Edit: `css/main.css`
 
 ---
 
-## 📊 Repository Stats
+## 📊 Repository Stats (v1.3.0)
 
-**Files:** 19 total
-- 1 HTML file (12 KB)
-- 3 CSS files (28 KB)
-- 6 JavaScript files (50 KB)
-- 5 Documentation files
+**Files:** 20+ total
+- 1 HTML file (13 KB)
+- 3 CSS files (33 KB) - includes dark mode variables
+- 7 JavaScript files (58 KB) - includes theme.js
+- 1 Asset file (logo.png, 5 KB)
+- 5+ Documentation files
 - 4 Configuration files
 
-**Total Size:** ~90 KB (very lightweight!)
+**Total Size:** ~110 KB (very lightweight!)
 
-**Lines of Code:** 4,860 lines
+**Lines of Code:** ~5,200 lines
+
+**Version:** 1.3.0
+**Features:** Dual tabs, auto-calc, dark mode, comparison, export, warnings
 
 ---
 
