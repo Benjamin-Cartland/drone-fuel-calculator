@@ -34,10 +34,11 @@ const App = (function() {
   function updateOutputs(tabId, outputs) {
     const suffix = tabId.slice(-1).toUpperCase();
 
-    document.getElementById(`flightFuel${suffix}`).textContent = outputs.flightFuel.toFixed(2);
-    document.getElementById(`variableReserve${suffix}`).textContent = outputs.variableReserve.toFixed(2);
-    document.getElementById(`reserveFuel${suffix}`).textContent = outputs.reserveFuel.toFixed(2);
-    document.getElementById(`totalFuel${suffix}`).textContent = outputs.totalFuel.toFixed(2);
+    // All fuel values display to 1 decimal place (client requirement)
+    document.getElementById(`flightFuel${suffix}`).textContent = outputs.flightFuel.toFixed(1);
+    document.getElementById(`variableReserve${suffix}`).textContent = outputs.variableReserve.toFixed(1);
+    document.getElementById(`reserveFuel${suffix}`).textContent = outputs.reserveFuel.toFixed(1);
+    document.getElementById(`totalFuel${suffix}`).textContent = outputs.totalFuel.toFixed(1);
   }
 
   /**
@@ -47,10 +48,10 @@ const App = (function() {
   function clearOutputs(tabId) {
     const suffix = tabId.slice(-1).toUpperCase();
 
-    document.getElementById(`flightFuel${suffix}`).textContent = '0.00';
-    document.getElementById(`variableReserve${suffix}`).textContent = '0.00';
-    document.getElementById(`reserveFuel${suffix}`).textContent = '0.00';
-    document.getElementById(`totalFuel${suffix}`).textContent = '0.00';
+    document.getElementById(`flightFuel${suffix}`).textContent = '0.0';
+    document.getElementById(`variableReserve${suffix}`).textContent = '0.0';
+    document.getElementById(`reserveFuel${suffix}`).textContent = '0.0';
+    document.getElementById(`totalFuel${suffix}`).textContent = '0.0';
   }
 
   /**

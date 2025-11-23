@@ -22,7 +22,20 @@ const FuelCalculator = (function() {
   };
 
   /**
-   * Round number to 2 decimal places
+   * Round fuel UP to 1 decimal place (client requirement)
+   * @param {number} num - Number to round
+   * @returns {number} Rounded number
+   */
+  function roundFuelUp(num) {
+    if (isNaN(num) || !isFinite(num)) {
+      return 0;
+    }
+    // Round UP to 1 decimal place
+    return Math.ceil(num * 10) / 10;
+  }
+
+  /**
+   * Round number to 2 decimal places (for non-fuel values like time)
    * @param {number} num - Number to round
    * @returns {number} Rounded number
    */
@@ -261,11 +274,11 @@ const FuelCalculator = (function() {
       }
     }
 
-    // Calculate fuel components
-    const flightFuel = calculateFlightFuel(flightTime);
-    const variableReserve = calculateVariableReserve(flightFuel);
-    const reserveFuel = calculateReserveFuel(finalReserve, holding, contingency);
-    const totalFuel = flightFuel + variableReserve + reserveFuel;
+    // Calculate fuel components (all rounded UP to 1 decimal place per client requirement)
+    const flightFuel = roundFuelUp(calculateFlightFuel(flightTime));
+    const variableReserve = roundFuelUp(calculateVariableReserve(flightFuel));
+    const reserveFuel = roundFuelUp(calculateReserveFuel(finalReserve, holding, contingency));
+    const totalFuel = roundFuelUp(flightFuel + variableReserve + reserveFuel);
 
     // Return results
     return {
@@ -279,10 +292,10 @@ const FuelCalculator = (function() {
         contingency: roundTo2(contingency)
       },
       outputs: {
-        flightFuel: roundTo2(flightFuel),
-        variableReserve: roundTo2(variableReserve),
-        reserveFuel: roundTo2(reserveFuel),
-        totalFuel: roundTo2(totalFuel)
+        flightFuel: flightFuel,
+        variableReserve: variableReserve,
+        reserveFuel: reserveFuel,
+        totalFuel: totalFuel
       },
       metadata: {
         fuelRate: CONFIG.FUEL_RATE,
