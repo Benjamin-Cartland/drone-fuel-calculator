@@ -16,13 +16,18 @@ const App = (function() {
     const form = document.getElementById(`form${tabId.slice(-1).toUpperCase()}`);
     if (!form) return null;
 
+    const getValue = (name) => {
+      const value = form.querySelector(`[name="${name}"]`).value;
+      return value === '' ? null : parseFloat(value);
+    };
+
     return {
-      distance: parseFloat(form.querySelector('[name="distance"]').value) || 0,
-      speed: parseFloat(form.querySelector('[name="speed"]').value) || 0,
-      flightTime: parseFloat(form.querySelector('[name="flightTime"]').value) || 0,
-      finalReserve: parseFloat(form.querySelector('[name="finalReserve"]').value) || 0,
-      holding: parseFloat(form.querySelector('[name="holding"]').value) || 0,
-      contingency: parseFloat(form.querySelector('[name="contingency"]').value) || 0
+      distance: getValue('distance'),
+      speed: getValue('speed'),
+      flightTime: getValue('flightTime'),
+      finalReserve: getValue('finalReserve'),
+      holding: getValue('holding'),
+      contingency: getValue('contingency')
     };
   }
 
