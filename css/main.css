@@ -61,6 +61,41 @@
   --transition-slow: 300ms ease;
 }
 
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  /* Colors - keep primary colors the same for brand consistency */
+  --color-primary: #3b82f6;
+  --color-primary-dark: #60a5fa;
+  --color-primary-light: #2563eb;
+  --color-secondary: #94a3b8;
+  --color-success: #10b981;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+  --color-caution: #fbbf24;
+
+  /* Backgrounds */
+  --bg-primary: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-hover: #334155;
+  --bg-active: #475569;
+
+  /* Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-inverse: #0f172a;
+
+  /* Borders */
+  --border-color: #334155;
+  --border-color-focus: var(--color-primary);
+
+  /* Shadows - softer in dark mode */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
 /* ========================================
    Reset & Base Styles
    ======================================== */
@@ -676,4 +711,45 @@ button {
 .loading {
   pointer-events: none;
   opacity: 0.6;
+}
+
+/* ========================================
+   Dark Mode Toggle
+   ======================================== */
+
+.theme-toggle {
+  position: absolute;
+  right: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-inverse);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-base);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.theme-label {
+  font-weight: 500;
+  user-select: none;
 }

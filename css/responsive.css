@@ -20,6 +20,16 @@
     margin-bottom: var(--spacing-sm);
   }
 
+  .theme-toggle {
+    position: static;
+    transform: none;
+    margin-top: var(--spacing-sm);
+  }
+
+  .theme-toggle:hover {
+    transform: scale(1.05);
+  }
+
   .app-header h1 {
     font-size: var(--font-size-xl);
   }
