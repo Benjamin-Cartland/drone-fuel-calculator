@@ -53,12 +53,17 @@ const FuelCalculator = (function() {
    * @returns {number} Flight time in hours
    */
   function calculateFlightTime(distance, speed) {
-    if (!distance || !speed || speed <= 0) {
+    // Ensure numeric types for Safari compatibility
+    const dist = parseFloat(distance);
+    const spd = parseFloat(speed);
+
+    if (!dist || !spd || spd <= 0 || isNaN(dist) || isNaN(spd)) {
       return 0;
     }
     // Convert: distance (km) / (speed (m/s) * 3.6) = time (hours)
     // Formula: 1 m/s = 3.6 km/h, so speed_kmh = speed_ms * 3.6
-    return distance / (speed * 3.6);
+    const speedKmh = spd * 3.6;
+    return dist / speedKmh;
   }
 
   /**
@@ -256,13 +261,13 @@ const FuelCalculator = (function() {
       };
     }
 
-    // Parse inputs
-    const distance = parseFloat(inputs.distance) || 0;
-    const speed = parseFloat(inputs.speed) || 0;
-    let flightTime = parseFloat(inputs.flightTime) || 0;
-    const finalReserve = parseFloat(inputs.finalReserve) || 0;
-    const holding = parseFloat(inputs.holding) || 0;
-    const contingency = parseFloat(inputs.contingency) || 0;
+    // Parse inputs - Safari compatibility with explicit null handling
+    const distance = (inputs.distance === null || inputs.distance === undefined) ? 0 : parseFloat(inputs.distance);
+    const speed = (inputs.speed === null || inputs.speed === undefined) ? 0 : parseFloat(inputs.speed);
+    let flightTime = (inputs.flightTime === null || inputs.flightTime === undefined) ? 0 : parseFloat(inputs.flightTime);
+    const finalReserve = (inputs.finalReserve === null || inputs.finalReserve === undefined) ? 0 : parseFloat(inputs.finalReserve);
+    const holding = (inputs.holding === null || inputs.holding === undefined) ? 0 : parseFloat(inputs.holding);
+    const contingency = (inputs.contingency === null || inputs.contingency === undefined) ? 0 : parseFloat(inputs.contingency);
 
     // Calculate flight time from distance and speed if provided
     let calculatedFlightTime = null;

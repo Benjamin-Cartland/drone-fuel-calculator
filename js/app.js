@@ -17,8 +17,14 @@ const App = (function() {
     if (!form) return null;
 
     const getValue = (name) => {
-      const value = form.querySelector(`[name="${name}"]`).value;
-      return value === '' ? null : parseFloat(value);
+      const input = form.querySelector(`[name="${name}"]`);
+      if (!input) return null;
+      const value = input.value.trim();
+      if (value === '' || value === null || value === undefined) {
+        return null;
+      }
+      const parsed = parseFloat(value);
+      return isNaN(parsed) ? null : parsed;
     };
 
     return {
@@ -131,13 +137,17 @@ const App = (function() {
     if (!inputs) return;
 
     // If distance and speed are provided, calculate flight time
-    if (inputs.distance > 0 && inputs.speed > 0) {
+    // Safari compatibility: ensure proper number comparison
+    const hasDistance = inputs.distance !== null && inputs.distance !== undefined && !isNaN(inputs.distance) && inputs.distance > 0;
+    const hasSpeed = inputs.speed !== null && inputs.speed !== undefined && !isNaN(inputs.speed) && inputs.speed > 0;
+
+    if (hasDistance && hasSpeed) {
       const calculatedTime = FuelCalculator.calculateFlightTime(inputs.distance, inputs.speed);
       const suffix = tabId.slice(-1).toUpperCase();
       const flightTimeInput = document.getElementById(`flightTime${suffix}`);
 
       // Auto-fill flight time and trigger immediate calculation
-      if (flightTimeInput) {
+      if (flightTimeInput && calculatedTime > 0) {
         flightTimeInput.value = calculatedTime.toFixed(2);
         // Trigger immediate calculation (no debounce for auto-fill)
         performCalculation(tabId);
