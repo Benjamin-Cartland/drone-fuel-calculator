@@ -2,6 +2,8 @@
 
 ## Project Complete! ✅
 
+**Version 1.3.0** | Developed by Benjamin Cartland
+
 Your drone fuel calculator web app is ready to use and deploy.
 
 ## What Was Built
@@ -11,18 +13,27 @@ A fully functional, responsive web application for calculating drone fuel requir
 ### Core Features
 - ✅ **Dual calculator tabs** - Run two calculations simultaneously
 - ✅ **Smart calculations** - 1.4 kg/hr fuel rate with automatic calculations
-- ✅ **Auto flight time** - Calculate from distance + speed OR enter manually
+- ✅ **Auto flight time** - Calculate from distance (km) + speed (m/s) OR enter manually
+- ✅ **Precision fuel display** - 1 decimal place, rounded UP for safety
+- ✅ **Dark mode** - Toggle with theme persistence and system detection (v1.3.0)
 - ✅ **Warning system** - 9 different warning conditions with color-coded alerts
 - ✅ **Comparison mode** - Side-by-side comparison (responsive layout)
 - ✅ **Export functions** - Copy to clipboard, download JSON, print
+- ✅ **Company branding** - Logo in header, developer attribution (v1.2.0)
 - ✅ **Responsive design** - Mobile, tablet, desktop optimized
-- ✅ **Data persistence** - localStorage saves your work
+- ✅ **Safari compatible** - Tested on Safari, Chrome, Edge, Firefox (v1.2.0)
+- ✅ **Data persistence** - localStorage saves your work and theme preference
 - ✅ **No backend needed** - 100% client-side
 
 ### Technical Details
-- **Fuel Rate:** 1.4 kg/hr (configurable)
+- **Version:** 1.3.0
+- **Fuel Rate:** 1.4 kg/hr (configurable in calculator.js)
+- **Speed Units:** m/s (meters per second)
 - **Variable Reserve:** 10% of flight fuel
-- **Formula:** Total = Flight Fuel + Variable Reserve + Reserve Fuel
+- **Fuel Display:** 1 decimal place (e.g., "2.8 kg", "3.1 kg")
+- **Rounding Method:** Math.ceil() - rounds UP to nearest 0.1 kg for safety
+- **Flight Time Formula:** Distance (km) / (Speed (m/s) × 3.6) = Time (hours)
+- **Total Formula:** Flight Fuel + Variable Reserve + Reserve Fuel (all rounded up)
 - **No dependencies** - Pure HTML/CSS/JavaScript
 - **No build process** - Ready to deploy as-is
 
@@ -30,22 +41,29 @@ A fully functional, responsive web application for calculating drone fuel requir
 
 ```
 fuel_calc_app/
-├── index.html              # Main application (12 KB)
+├── index.html              # Main application (13 KB)
 ├── css/
-│   ├── main.css           # Core styles (14 KB)
-│   ├── responsive.css     # Mobile/tablet/desktop (6 KB)
+│   ├── main.css           # Core styles + dark mode (18 KB)
+│   ├── responsive.css     # Mobile/tablet/desktop (7 KB)
 │   └── print.css          # Print optimization (8 KB)
 ├── js/
-│   ├── calculator.js      # Calculation engine (9 KB)
+│   ├── calculator.js      # Calculation engine (10 KB)
 │   ├── tabs.js            # Tab management + storage (7 KB)
+│   ├── theme.js           # Dark mode toggle + persistence (4 KB)
 │   ├── warnings.js        # Warning system (7 KB)
 │   ├── comparison.js      # Comparison mode (8 KB)
 │   ├── export.js          # Export/print functions (11 KB)
 │   └── app.js             # Main initialization (8 KB)
+├── assets/
+│   ├── logo.png           # Company logo (5 KB)
+│   └── icons/             # Favicon assets
 ├── docs/
-│   ├── GETTING_STARTED.md # User guide
+│   ├── requirements.md    # Requirements specification
 │   └── deployment.md      # Deployment instructions
 ├── README.md               # Project overview
+├── PROJECT_SUMMARY.md      # This file
+├── QUICKSTART.txt          # Quick reference guide
+├── DEPLOYMENT_READY.md     # Deployment checklist
 ├── .gitignore             # Git ignore rules
 ├── _headers               # Cloudflare security headers
 ├── _redirects             # URL redirects (optional)
@@ -235,7 +253,15 @@ This calculator is for planning purposes only. Always verify calculations and ad
 **Project Status:** ✅ Complete and ready to deploy!
 
 **Built:** November 2025
-**Version:** 1.0.0
+**Version:** 1.3.0
+**Developer:** Benjamin Cartland
 **Technology:** HTML5, CSS3, JavaScript (ES6+)
 **Dependencies:** None
 **License:** MIT (or your choice)
+
+## Version History
+
+**v1.3.0 (2025-11-23)** - Dark mode with persistence
+**v1.2.0 (2025-11-23)** - Fuel rounding precision, Safari fixes, branding
+**v1.1.0 (2025-11-22)** - Speed units to m/s, calculation improvements
+**v1.0.0 (2025-11-22)** - Initial release with dual tabs and comparison

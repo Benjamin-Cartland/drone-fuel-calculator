@@ -1,8 +1,9 @@
 ═══════════════════════════════════════════════════════════════
-  DRONE FUEL CALCULATOR - QUICK START
+  DRONE FUEL CALCULATOR - QUICK START  v1.3.0
 ═══════════════════════════════════════════════════════════════
 
 ✅ PROJECT COMPLETE! Your fuel calculator is ready to use.
+   Developed by Benjamin Cartland
 
 ═══════════════════════════════════════════════════════════════
   OPTION 1: TEST LOCALLY RIGHT NOW
@@ -50,11 +51,12 @@ Your site will be at: https://YOUR-PROJECT.pages.dev
 
 □ Open index.html in browser
 □ Enter distance: 180 km
-□ Enter speed: 90 km/h
-□ Check flight time auto-calculated: 2.0 hrs
+□ Enter speed: 25 m/s
+□ Check flight time auto-calculated: 2.00 hrs
 □ Final reserve should default to: 0.5 hrs
-□ Click Calculate or just wait (auto-calculates)
-□ Total fuel should show: 3.78 kg
+□ Auto-calculates as you type (no Calculate button needed)
+□ Total fuel should show: 3.8 kg
+□ Try dark mode toggle (moon icon in header)
 □ Switch to Tab B and try different values
 □ Click Compare button
 □ Try Copy, Download, and Print buttons
@@ -65,29 +67,34 @@ Your site will be at: https://YOUR-PROJECT.pages.dev
 
 Input:
   Distance: 180 km
-  Speed: 90 km/h
-  Flight Time: 2.0 hrs (auto-calculated)
+  Speed: 25 m/s (= 90 km/h)
+  Flight Time: 2.00 hrs (auto-calculated: 180 / (25×3.6) = 2.0)
   Final Reserve: 0.5 hrs
   Holding: 0 hrs
   Contingency: 0 hrs
 
 Output:
-  Flight Fuel: 2.80 kg
-  Variable Reserve: 0.28 kg
-  Reserve Fuel: 0.70 kg
-  Total Fuel Required: 3.78 kg
+  Flight Fuel: 2.8 kg (2.0 × 1.4 = 2.8)
+  Variable Reserve: 0.3 kg (2.8 × 0.10 = 0.28, rounds up to 0.3)
+  Reserve Fuel: 0.7 kg (0.5 × 1.4 = 0.7)
+  Total Fuel Required: 3.8 kg (sum rounded up)
+
+Note: All fuel values display to 1 decimal place and round UP
 
 ═══════════════════════════════════════════════════════════════
   KEY FEATURES
 ═══════════════════════════════════════════════════════════════
 
 ✓ Two calculator tabs (run 2 calculations at once)
-✓ Auto-calculate flight time from distance + speed
-✓ Real-time calculations as you type
-✓ Color-coded warnings for issues
-✓ Compare mode (side-by-side)
+✓ Auto-calculate flight time from distance + speed (m/s)
+✓ Real-time calculations as you type (debounced 300ms)
+✓ Precision: 1 decimal place, rounds UP for safety
+✓ Dark mode toggle with theme persistence
+✓ Color-coded warnings for 9 issues
+✓ Compare mode (side-by-side on desktop, stacked on mobile)
 ✓ Export: Copy, JSON download, Print
 ✓ Mobile responsive
+✓ Safari compatible
 ✓ Data auto-saves (localStorage)
 
 ═══════════════════════════════════════════════════════════════
