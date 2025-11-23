@@ -1,11 +1,11 @@
 # Drone Fuel Calculator - Requirements Specification
 
 ## Document Information
-- **Version:** 1.1.0
+- **Version:** 1.3.0
 - **Date:** November 2025
 - **Status:** Implemented and Deployed
 - **Project:** Drone Fuel Calculator Web Application
-- **Last Updated:** 2025-11-22 (Speed unit change to m/s)
+- **Last Updated:** 2025-11-23 (Dark mode added)
 
 ---
 
@@ -937,6 +937,8 @@ Effective Fuel Rate = Total Fuel ÷ Total Time
 |---------|------|--------|---------|
 | 1.0.0 | 2025-11-22 | System | Initial requirements documentation based on implemented system |
 | 1.1.0 | 2025-11-22 | System | Updated speed units from km/h to m/s, updated auto-calculation behavior, updated validation rules and warning thresholds |
+| 1.2.0 | 2025-11-23 | System | Client fuel rounding requirements (1 decimal, round up), Safari compatibility fixes, company logo added, developer attribution in footer |
+| 1.3.0 | 2025-11-23 | System | Dark mode toggle added with theme persistence, system preference detection, and responsive design |
 
 ---
 
