@@ -125,6 +125,23 @@ p {
   padding: var(--spacing-lg) var(--spacing-md);
   text-align: center;
   box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  position: relative;
+}
+
+.header-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  position: absolute;
+  left: var(--spacing-lg);
+}
+
+.header-text {
+  text-align: center;
 }
 
 .app-header h1 {

@@ -57,18 +57,13 @@ const FuelCalculator = (function() {
     const dist = parseFloat(distance);
     const spd = parseFloat(speed);
 
-    console.log('[calculateFlightTime] distance:', distance, '→', dist);
-    console.log('[calculateFlightTime] speed:', speed, '→', spd);
-
     if (!dist || !spd || spd <= 0 || isNaN(dist) || isNaN(spd)) {
-      console.log('[calculateFlightTime] Invalid inputs, returning 0');
       return 0;
     }
     // Convert: distance (km) / (speed (m/s) * 3.6) = time (hours)
     // Formula: 1 m/s = 3.6 km/h, so speed_kmh = speed_ms * 3.6
     const speedKmh = spd * 3.6;
     const result = dist / speedKmh;
-    console.log('[calculateFlightTime] speedKmh:', speedKmh, 'dist/speedKmh:', result);
     return result;
   }
 
