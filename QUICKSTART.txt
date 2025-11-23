@@ -1,5 +1,5 @@
 ═══════════════════════════════════════════════════════════════
-  DRONE FUEL CALCULATOR - QUICK START  v1.3.0
+  DRONE FUEL CALCULATOR - QUICK START  v1.4.0
 ═══════════════════════════════════════════════════════════════
 
 ✅ PROJECT COMPLETE! Your fuel calculator is ready to use.
@@ -53,7 +53,7 @@ Your site will be at: https://YOUR-PROJECT.pages.dev
 □ Enter distance: 180 km
 □ Enter speed: 25 m/s
 □ Check flight time auto-calculated: 2.00 hrs
-□ Final reserve should default to: 0.5 hrs
+□ Final reserve should default to: 30 mins
 □ Auto-calculates as you type (no Calculate button needed)
 □ Total fuel should show: 3.8 kg
 □ Try dark mode toggle (moon icon in header)
@@ -69,14 +69,14 @@ Input:
   Distance: 180 km
   Speed: 25 m/s (= 90 km/h)
   Flight Time: 2.00 hrs (auto-calculated: 180 / (25×3.6) = 2.0)
-  Final Reserve: 0.5 hrs
-  Holding: 0 hrs
-  Contingency: 0 hrs
+  Final Reserve: 30 mins (= 0.5 hrs)
+  Holding: 0 mins
+  Contingency: 0 mins
 
 Output:
   Flight Fuel: 2.8 kg (2.0 × 1.4 = 2.8)
   Variable Reserve: 0.3 kg (2.8 × 0.10 = 0.28, rounds up to 0.3)
-  Reserve Fuel: 0.7 kg (0.5 × 1.4 = 0.7)
+  Reserve Fuel: 0.7 kg (30 mins = 0.5 hrs × 1.4 = 0.7)
   Total Fuel Required: 3.8 kg (sum rounded up)
 
 Note: All fuel values display to 1 decimal place and round UP

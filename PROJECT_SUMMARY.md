@@ -2,7 +2,7 @@
 
 ## Project Complete! ✅
 
-**Version 1.3.0** | Developed by Benjamin Cartland
+**Version 1.4.0** | Developed by Benjamin Cartland
 
 Your drone fuel calculator web app is ready to use and deploy.
 
@@ -15,6 +15,7 @@ A fully functional, responsive web application for calculating drone fuel requir
 - ✅ **Smart calculations** - 1.4 kg/hr fuel rate with automatic calculations
 - ✅ **Auto flight time** - Calculate from distance (km) + speed (m/s) OR enter manually
 - ✅ **Precision fuel display** - 1 decimal place, rounded UP for safety
+- ✅ **Reserve inputs in minutes** - Intuitive input (30, 60 mins) vs hours (v1.4.0)
 - ✅ **Dark mode** - Toggle with theme persistence and system detection (v1.3.0)
 - ✅ **Warning system** - 9 different warning conditions with color-coded alerts
 - ✅ **Comparison mode** - Side-by-side comparison (responsive layout)
@@ -26,7 +27,8 @@ A fully functional, responsive web application for calculating drone fuel requir
 - ✅ **No backend needed** - 100% client-side
 
 ### Technical Details
-- **Version:** 1.3.0
+- **Version:** 1.4.0
+- **Reserve Units:** Minutes (converted to hours internally for calculations)
 - **Fuel Rate:** 1.4 kg/hr (configurable in calculator.js)
 - **Speed Units:** m/s (meters per second)
 - **Variable Reserve:** 10% of flight fuel
@@ -253,7 +255,7 @@ This calculator is for planning purposes only. Always verify calculations and ad
 **Project Status:** ✅ Complete and ready to deploy!
 
 **Built:** November 2025
-**Version:** 1.3.0
+**Version:** 1.4.0
 **Developer:** Benjamin Cartland
 **Technology:** HTML5, CSS3, JavaScript (ES6+)
 **Dependencies:** None
@@ -261,6 +263,7 @@ This calculator is for planning purposes only. Always verify calculations and ad
 
 ## Version History
 
+**v1.4.0 (2025-11-24)** - Reserve inputs changed to minutes for better UX
 **v1.3.0 (2025-11-23)** - Dark mode with persistence
 **v1.2.0 (2025-11-23)** - Fuel rounding precision, Safari fixes, branding
 **v1.1.0 (2025-11-22)** - Speed units to m/s, calculation improvements

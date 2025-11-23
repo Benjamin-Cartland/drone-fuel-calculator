@@ -90,15 +90,15 @@
           </div>
 
           <div class="input-group">
-            <label for="finalReserveA">Final Reserve (hours)</label>
+            <label for="finalReserveA">Final Reserve (minutes)</label>
             <input
               type="number"
               id="finalReserveA"
               name="finalReserve"
-              step="0.01"
+              step="1"
               min="0"
-              max="5"
-              value="0.5"
+              max="300"
+              value="30"
               class="calc-input"
               required
             >
@@ -106,31 +106,31 @@
           </div>
 
           <div class="input-group">
-            <label for="holdingA">Holding (hours) <span class="optional">(optional)</span></label>
+            <label for="holdingA">Holding (minutes) <span class="optional">(optional)</span></label>
             <input
               type="number"
               id="holdingA"
               name="holding"
-              step="0.01"
+              step="1"
               min="0"
-              max="10"
+              max="600"
               value="0"
-              placeholder="0.00"
+              placeholder="0"
               class="calc-input"
             >
           </div>
 
           <div class="input-group">
-            <label for="contingencyA">Contingency (hours) <span class="optional">(optional)</span></label>
+            <label for="contingencyA">Contingency (minutes) <span class="optional">(optional)</span></label>
             <input
               type="number"
               id="contingencyA"
               name="contingency"
-              step="0.01"
+              step="1"
               min="0"
-              max="5"
+              max="300"
               value="0"
-              placeholder="0.00"
+              placeholder="0"
               class="calc-input"
             >
           </div>
@@ -242,15 +242,15 @@
           </div>
 
           <div class="input-group">
-            <label for="finalReserveB">Final Reserve (hours)</label>
+            <label for="finalReserveB">Final Reserve (minutes)</label>
             <input
               type="number"
               id="finalReserveB"
               name="finalReserve"
-              step="0.01"
+              step="1"
               min="0"
-              max="5"
-              value="0.5"
+              max="300"
+              value="30"
               class="calc-input"
               required
             >
@@ -258,31 +258,31 @@
           </div>
 
           <div class="input-group">
-            <label for="holdingB">Holding (hours) <span class="optional">(optional)</span></label>
+            <label for="holdingB">Holding (minutes) <span class="optional">(optional)</span></label>
             <input
               type="number"
               id="holdingB"
               name="holding"
-              step="0.01"
+              step="1"
               min="0"
-              max="10"
+              max="600"
               value="0"
-              placeholder="0.00"
+              placeholder="0"
               class="calc-input"
             >
           </div>
 
           <div class="input-group">
-            <label for="contingencyB">Contingency (hours) <span class="optional">(optional)</span></label>
+            <label for="contingencyB">Contingency (minutes) <span class="optional">(optional)</span></label>
             <input
               type="number"
               id="contingencyB"
               name="contingency"
-              step="0.01"
+              step="1"
               min="0"
-              max="5"
+              max="300"
               value="0"
-              placeholder="0.00"
+              placeholder="0"
               class="calc-input"
             >
           </div>
@@ -369,7 +369,7 @@
       <strong>Disclaimer:</strong> This calculator is for planning purposes only. Always verify calculations and adhere to operational procedures and regulations.
     </p>
     <p class="version">
-      Version 1.3.0 |
+      Version 1.4.0 |
       Developed by <a href="#" class="footer-link" id="developerLink">Benjamin Cartland</a>
     </p>
   </footer>

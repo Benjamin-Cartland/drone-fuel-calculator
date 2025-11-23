@@ -1,42 +1,10 @@
-# Drone Fuel Calculator - Requirements Specification
+# Drone Fuel Calculator - Requirements
 
-## Document Information
-- **Version:** 1.3.0
-- **Date:** November 2025
-- **Status:** Implemented and Deployed
-- **Project:** Drone Fuel Calculator Web Application
-- **Last Updated:** 2025-11-23 (Dark mode added)
+**Version 1.3.0** | November 2025 | Status: ✅ Implemented
 
----
+Web-based fuel calculator for drone flight planning using ICAO-style principles. Features dual tabs, auto-calculations, dark mode, and responsive design.
 
-## 1. Project Overview
-
-### 1.1 Purpose
-A web-based fuel calculation tool for drone flight planning that calculates total fuel requirements based on flight parameters, following ICAO-style fuel planning principles. Users can enter distance and speed (auto-calculates flight time) or enter flight time directly, along with reserve fuel requirements.
-
-### 1.2 Goals
-- Provide accurate fuel calculations for drone operations
-- Support multiple simultaneous calculations via tab system
-- Enable comparison of different flight scenarios
-- Ensure mobile-friendly responsive design
-- Maintain 100% client-side operation (no backend required)
-
-### 1.3 Scope
-**In Scope:**
-- Fuel calculation based on standardized formulas
-- Dual independent calculator tabs
-- Warning system for operational safety
-- Export and print functionality
-- Responsive design for all devices
-- Data persistence via localStorage
-
-**Out of Scope (v1.0):**
-- Multiple drone types with different fuel rates
-- Weather factor adjustments
-- Imperial unit system
-- User authentication
-- Historical calculation database
-- Multi-language support
+**Key Goals:** Accurate calculations, mobile-friendly, 100% client-side, comparison mode, data persistence
 
 ---
 

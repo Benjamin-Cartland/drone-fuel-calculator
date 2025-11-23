@@ -27,13 +27,19 @@ const App = (function() {
       return isNaN(parsed) ? null : parsed;
     };
 
+    // Get values (reserves now in minutes)
+    const finalReserveMinutes = getValue('finalReserve');
+    const holdingMinutes = getValue('holding');
+    const contingencyMinutes = getValue('contingency');
+
     return {
       distance: getValue('distance'),
       speed: getValue('speed'),
       flightTime: getValue('flightTime'),
-      finalReserve: getValue('finalReserve'),
-      holding: getValue('holding'),
-      contingency: getValue('contingency')
+      // Convert minutes to hours for calculation
+      finalReserve: finalReserveMinutes !== null ? finalReserveMinutes / 60 : null,
+      holding: holdingMinutes !== null ? holdingMinutes / 60 : null,
+      contingency: contingencyMinutes !== null ? contingencyMinutes / 60 : null
     };
   }
 

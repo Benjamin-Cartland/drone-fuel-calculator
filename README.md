@@ -2,7 +2,7 @@
 
 A responsive web application for calculating drone fuel requirements for flight planning.
 
-**Version:** 1.3.0 | **Developer:** Benjamin Cartland
+**Version:** 1.4.0 | **Developer:** Benjamin Cartland
 
 ## Features
 
@@ -39,9 +39,9 @@ A responsive web application for calculating drone fuel requirements for flight 
    - Distance (km) - optional
    - Cruise Speed (m/s) - optional (used with distance to auto-calculate flight time)
    - Flight time (hours) - required (can be auto-calculated or entered manually)
-   - Final reserve (default: 0.5 hours)
-   - Holding time (optional)
-   - Contingency (optional)
+   - Final reserve (minutes, default: 30 minutes)
+   - Holding time (minutes, optional)
+   - Contingency (minutes, optional)
 3. **Review results**: Fuel requirements calculated automatically as you type (debounced 300ms)
 4. **Check warnings**: Review any alerts or cautions
 5. **Toggle theme**: Click the moon/sun icon to switch between light and dark modes
@@ -70,7 +70,7 @@ Input:
   Distance: 180 km
   Speed: 25 m/s
   Flight Time: 2.00 hrs (auto-calculated: 180 / (25 × 3.6) = 2.0)
-  Final Reserve: 0.5 hrs
+  Final Reserve: 30 mins (= 0.5 hrs)
 
 Output:
   Flight Fuel: 2.8 kg (2.0 × 1.4 = 2.8)
@@ -195,6 +195,11 @@ For issues, questions, or feature requests:
 
 ## Version History
 
+### Version 1.4.0 (2025-11-24)
+- ⏱️ Reserve inputs changed from hours to minutes for better UX
+- 📝 Final Reserve default: 30 minutes (previously 0.5 hours)
+- 🎯 More intuitive for operators (30, 60 mins vs 0.5, 1.0 hrs)
+
 ### Version 1.3.0 (2025-11-23)
 - ✨ Dark mode toggle with theme persistence
 - 🌙 Automatic system preference detection
@@ -235,4 +240,4 @@ Potential features for future versions:
 ---
 
 **Built for drone operators by drone operators**
-**Version 1.3.0** | Developed by Benjamin Cartland
+**Version 1.4.0** | Developed by Benjamin Cartland

@@ -1,6 +1,6 @@
 # 🚀 Deployment Ready!
 
-**Version 1.3.0** | Developed by Benjamin Cartland
+**Version 1.4.0** | Developed by Benjamin Cartland
 
 ## ✅ Git Repository Created and Pushed
 
@@ -10,7 +10,7 @@ Your drone fuel calculator is now on GitHub:
 
 **Status:**
 - ✅ Git initialized
-- ✅ All 20+ files committed (v1.3.0)
+- ✅ All 20+ files committed (v1.4.0)
 - ✅ Pushed to GitHub (main branch)
 - ✅ Public repository
 - ✅ Ready for deployment
@@ -60,6 +60,7 @@ Once deployed, test these features:
 - [ ] Enter distance: 180 km
 - [ ] Enter speed: 25 m/s (= 90 km/h)
 - [ ] Verify flight time auto-calculates: 2.00 hrs
+- [ ] Verify final reserve defaults to: 30 mins
 - [ ] Check total fuel: 3.8 kg (displays 1 decimal place)
 
 **Tab System:**
@@ -156,8 +157,8 @@ Edit: `css/main.css`
 
 **Lines of Code:** ~5,200 lines
 
-**Version:** 1.3.0
-**Features:** Dual tabs, auto-calc, dark mode, comparison, export, warnings
+**Version:** 1.4.0
+**Features:** Dual tabs, auto-calc, dark mode, minute inputs, comparison, export, warnings
 
 ---
 
