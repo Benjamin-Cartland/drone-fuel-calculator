@@ -1,17 +1,18 @@
 # Drone Fuel Calculator - Requirements Specification
 
 ## Document Information
-- **Version:** 1.0.0
+- **Version:** 1.1.0
 - **Date:** November 2025
 - **Status:** Implemented and Deployed
 - **Project:** Drone Fuel Calculator Web Application
+- **Last Updated:** 2025-11-22 (Speed unit change to m/s)
 
 ---
 
 ## 1. Project Overview
 
 ### 1.1 Purpose
-A web-based fuel calculation tool for drone flight planning that calculates total fuel requirements based on flight parameters, following ICAO-style fuel planning principles.
+A web-based fuel calculation tool for drone flight planning that calculates total fuel requirements based on flight parameters, following ICAO-style fuel planning principles. Users can enter distance and speed (auto-calculates flight time) or enter flight time directly, along with reserve fuel requirements.
 
 ### 1.2 Goals
 - Provide accurate fuel calculations for drone operations
@@ -88,23 +89,26 @@ A web-based fuel calculation tool for drone flight planning that calculates tota
 - **Status:** ✅ Implemented
 
 #### FR-011: Cruise Speed Input (Optional)
-- **Field:** Cruise speed in km/h
+- **Field:** Cruise speed in m/s
 - **Type:** Number
-- **Range:** 0.01 km/h to 500 km/h
+- **Range:** 0.01 m/s to 140 m/s
 - **Validation:** Positive number
 - **Required:** No
 - **Use Case:** Used with distance to auto-calculate flight time
+- **Behavior:** When both distance and speed provided, flight time is auto-calculated and filled in the input box, triggering immediate calculation
 - **Priority:** Medium
 - **Status:** ✅ Implemented
 
-#### FR-012: Flight Time Input (Required)
+#### FR-012: Flight Time Input (Required/Auto-calculated)
 - **Field:** Flight time in hours
 - **Type:** Number
 - **Range:** 0.01 hours to 24 hours
-- **Validation:** Positive number, required field
-- **Auto-calculation:** If distance and speed provided, flight time auto-calculated
-- **Override:** User can manually override auto-calculated value
-- **Required:** Yes
+- **Validation:** Positive number
+- **Auto-calculation:** When both distance and speed provided, flight time is automatically calculated and filled with 2 decimal precision
+- **Manual Entry:** Can be entered directly without distance/speed
+- **Formula:** `Flight Time (hrs) = Distance (km) / (Speed (m/s) × 3.6)`
+- **Behavior:** Auto-calculated value triggers immediate calculation (no debounce delay)
+- **Required:** Yes (but auto-filled if distance + speed provided)
 - **Priority:** Critical
 - **Status:** ✅ Implemented
 
@@ -143,10 +147,12 @@ A web-based fuel calculation tool for drone flight planning that calculates tota
 #### FR-020: Automatic Flight Time Calculation
 - **Requirement:** Calculate flight time from distance and speed
 - **Trigger:** When both distance and speed are provided
-- **Formula:** `Flight Time = Distance ÷ Speed`
-- **Behavior:** Auto-fills flight time field if empty
-- **Indicator:** Display "Calculated from distance & speed: X.XX hrs" message
-- **Override:** User can manually enter different flight time
+- **Formula:** `Flight Time (hrs) = Distance (km) / (Speed (m/s) × 3.6)`
+- **Conversion:** 1 m/s = 3.6 km/h
+- **Behavior:** Auto-fills flight time field directly in input box with 2 decimal precision
+- **Calculation:** Triggers immediate calculation (bypasses 300ms debounce)
+- **Indicator:** Displays "Calculated from distance & speed: X.XX hrs" confirmation message
+- **Manual Override:** User can clear and enter different flight time; speed/distance become optional
 - **Priority:** High
 - **Status:** ✅ Implemented
 
@@ -248,9 +254,10 @@ A web-based fuel calculation tool for drone flight planning that calculates tota
 - **Status:** ✅ Implemented
 
 #### FR-048: Speed Concerns
-- **Condition:** Speed < 10 km/h OR Speed > 200 km/h
+- **Condition:** Speed < 3 m/s OR Speed > 60 m/s
 - **Type:** Info (Blue)
-- **Message:** "Very low/high cruise speed detected (X.XX km/h). Verify speed input and drone capabilities."
+- **Message:** "Very low cruise speed detected (X.XX m/s)" or "High cruise speed detected (X.XX m/s). Verify speed input and drone capabilities."
+- **Thresholds:** Low: <3 m/s (~10.8 km/h), High: >60 m/s (~216 km/h)
 - **Priority:** Low
 - **Status:** ✅ Implemented
 
@@ -894,14 +901,16 @@ Effective Fuel Rate = Total Fuel ÷ Total Time
 
 ## Appendix B: Validation Rules
 
-| Field | Min | Max | Required | Format | Default |
-|-------|-----|-----|----------|--------|---------|
-| Distance | 0.01 | 10000 | No | Decimal | - |
-| Speed | 0.01 | 500 | No | Decimal | - |
-| Flight Time | 0.01 | 24 | Yes | Decimal | - |
-| Final Reserve | 0 | 5 | Yes | Decimal | 0.5 |
-| Holding | 0 | 10 | No | Decimal | 0 |
-| Contingency | 0 | 5 | No | Decimal | 0 |
+| Field | Min | Max | Required | Format | Default | Units |
+|-------|-----|-----|----------|--------|---------|-------|
+| Distance | 0.01 | 10000 | No | Decimal | - | km |
+| Speed | 0.01 | 140 | No | Decimal | - | m/s |
+| Flight Time | 0.01 | 24 | Yes* | Decimal | - | hours |
+| Final Reserve | 0 | 5 | Yes | Decimal | 0.5 | hours |
+| Holding | 0 | 10 | No | Decimal | 0 | hours |
+| Contingency | 0 | 5 | No | Decimal | 0 | hours |
+
+\* Flight Time is auto-filled when both Distance and Speed are provided
 
 ---
 
@@ -917,8 +926,8 @@ Effective Fuel Rate = Total Fuel ÷ Total Time
 | Zero Reserve | Total Reserve = 0 | Warning | ⚠️ |
 | High Fuel Rate | Effective > 10 kg/hr | Info | ℹ️ |
 | Long Distance | Distance > 1000 km | Info | ℹ️ |
-| Speed Low | Speed < 10 km/h | Info | ℹ️ |
-| Speed High | Speed > 200 km/h | Info | ℹ️ |
+| Speed Low | Speed < 3 m/s (~10.8 km/h) | Info | ℹ️ |
+| Speed High | Speed > 60 m/s (~216 km/h) | Info | ℹ️ |
 
 ---
 
@@ -927,6 +936,7 @@ Effective Fuel Rate = Total Fuel ÷ Total Time
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0.0 | 2025-11-22 | System | Initial requirements documentation based on implemented system |
+| 1.1.0 | 2025-11-22 | System | Updated speed units from km/h to m/s, updated auto-calculation behavior, updated validation rules and warning thresholds |
 
 ---
 
