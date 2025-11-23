@@ -185,11 +185,14 @@ const App = (function() {
     const inputs = getFormInputs(tabId);
     if (!inputs) return;
 
+    console.log('performCalculation - inputs:', JSON.stringify(inputs));
+
     // Clear previous errors
     clearErrors(tabId);
 
     // Perform calculation
     const result = FuelCalculator.calculate(inputs);
+    console.log('performCalculation - result:', result);
 
     if (result.success) {
       // Update outputs
