@@ -2,7 +2,7 @@
 
 A responsive web application for calculating drone fuel requirements for flight planning.
 
-**Version:** 1.4.0 | **Developer:** Benjamin Cartland
+**Version:** 1.5.0 | **Developer:** Benjamin Cartland
 
 ## Features
 
@@ -240,4 +240,4 @@ Potential features for future versions:
 ---
 
 **Built for drone operators by drone operators**
-**Version 1.4.0** | Developed by Benjamin Cartland
+**Version 1.5.0** | Developed by Benjamin Cartland
